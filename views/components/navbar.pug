@@ -1,0 +1,26 @@
+nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+    .container-fluid
+        a.navbar-brand.heading(href="/") Online#[span Shop]
+        button.navbar-toggler(type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation")
+            span.navbar-toggler-icon
+        .collapse.navbar-collapse.justify-content-end#navbar
+            ul.navbar-nav.mb-2.mb-lg-0
+                li.nav-item
+                    a.nav-link.active(aria-current="page" href="/") Home
+                if isUser
+                    li.nav-item
+                        a.nav-link(href="/cart" aria-current="page") Cart
+                    li.nav-item
+                        a.nav-link(href="/orders" aria-current="page") Orders
+                li.nav-item
+                    a.nav-link(href="/login" aria-current="page") Login
+                li.nav-item
+                    a.nav-link(href="/signup" aria-current="page") Signup
+                if isAdmin
+                    li.nav-item
+                        a.nav-link(href="/admin/add" aria-current="page") Add Product
+                    li.nav-item
+                        a.nav-link(href="/admin/orders" aria-current="page") Manage Orders
+            if isUser
+                form(action="/logout" method="post")
+                    input.btn.btn-danger(type="submit" value="Logout")

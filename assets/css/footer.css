@@ -1,0 +1,119 @@
+:root {
+    --orange-color: #ff7315;
+    --white: #fff;
+    --dark: #232020;
+    --font1: 'Lato', sans-serif;
+}
+
+@font-face {
+    src: url('../webfonts/fa-solid-900.eot');
+    src: url('../webfonts/fa-solid-900.svg');
+    src: url('../webfonts/fa-solid-900.ttf');
+    src: url('../webfonts/fa-solid-900.woff');
+    src: url('../webfonts/fa-solid-900.woff2');
+    font-family: 'Font Awesome 5 free';
+}
+
+.heading {
+    font-family: var(--font1);
+    font-weight: 900;
+}
+
+.heading span {
+    color: var(--orange-color);
+}
+
+footer {
+    padding: 5rem 0;
+    background-color: #232020 !important;
+    color: var(--white);
+}
+
+footer .footer-left p {
+    font-family: var(--font1);
+    font-weight: normal;
+    color: #a09292;
+}
+
+footer .footer-left .social-icons a {
+    display: inline-block;
+    background-color: #3a3535;
+    color: #fff;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 36px;
+    transition: all 0.2s ease-in-out;
+}
+
+footer .footer-left .social-icons a:hover {
+    background-color: var(--orange-color);
+}
+
+footer .footer-right h4 {
+    font-size: 36px;
+    line-height: 46px;
+    font-family: var(--font1);
+}
+
+.footer-right .useful-links h5, 
+.footer-right .store h5 {
+    font-family: var(--font1);
+    font-size: 20px;
+    line-height: 20px;
+    margin-bottom: 25px;
+}
+
+.footer-right .useful-links li a {
+    display: block;
+    color: #a09292;
+    font-family: var(--font1);
+    text-decoration: none;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 24px;
+    margin-bottom: 10px;
+}
+
+
+
+.footer-right .useful-links li a::before {
+    content: '\f105';
+    font-family:"Font Awesome 5 free";
+    margin-right: 10px;
+}
+
+.footer-right .useful-links li a:hover {
+    color: var(--orange-color); 
+}
+
+.footer-right .store p {
+    color: #a09292;
+    font-family: var(--font1);
+    font-weight: normal;
+    line-height: 25px;
+}
+
+.footer-right .store ul li a {
+    color: #acb2b7;
+    font-size: 34px;
+    margin-right: 15px;
+    transition: color 0.3s ease-in-out;
+    font-size: 1.5rem;
+}
+
+.footer-right .store ul li a:hover {
+    color: #a09292;
+}
+
+footer .copyright {
+    border-top: 1px solid #565252;
+}
+
+footer .copyright p {
+    color: #a09292;
+    font-family: var(--font1);
+    font-weight: normal;
+    font-size: 16px;
+}

@@ -1,0 +1,47 @@
+doctype
+html(lang="en")
+    head
+        include parts/metas
+        include parts/styles
+        link(rel="stylesheet", href="./css/home.css")
+        title Home
+    body
+        include components/navbar
+        section.py-5(style=products.length? 'height: auto' : 'height: 90vh')
+            .container
+                .filter-options
+                    form(action="/", method="GET")
+                        select.form-control(name="category")
+                            option(value="all") All
+                            option(value="clothes") Clothes
+                            option(value="phones") Phones
+                            option(value="flowers") Flowers
+                            option(value="watches") Watches
+                            option(value="shoes") Shoes
+                            option(value="computers") Computers
+                        input.btn.btn-primary(type="submit", value="Filter")
+                if amountErr
+                    p.alert.alert-danger #{amountErr.msg}
+                .prdoucts
+                    .products-wrapper
+                        if products.length
+                            - let index = 0;
+                            each product in products
+                                .product
+                                    .card
+                                        img.card-img-top(src=`/${product.image}` alt=`${product.name}`)
+                                        .card-body
+                                            h5.card-title
+                                                a(href=`/product/${product._id}`) #{product.name}
+                                            p.price Price: #[span #{product.price}$]
+                                            form.amount(action="/cart", method="post")
+                                                input.form-control(type="number", name="amount" placeholder="amount" required)
+                                                input(type="hidden", name="name" value=`${product.name}`)
+                                                input(type="hidden", name="price" value=`${product.price}`)
+                                                input(type="hidden", name="productId" value=`${product._id}`)
+                                                input(type="hidden", name="redirectTo" value="/")
+                                                input.btn.btn-primary.form-control(type="submit", value="Add To Cart")
+                        else
+                            .alert.alert-danger there is no products
+        include components/footer
+        include parts/scripts

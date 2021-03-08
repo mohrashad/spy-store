@@ -1,0 +1,54 @@
+doctype
+html(lang="en")
+    head
+        include parts/metas
+        include parts/styles
+        link(rel="stylesheet", href="/css/signup.css")
+        title Signup
+    body
+        include components/navbar
+        header.text-center
+            .overlay
+                h2.h1 Signup
+        section.signUp.py-5
+            .container
+                .row
+                    .signup_box.col-md
+                        .signup_wrapper.py-4.py-md-0
+                            h3.mb-4 Member To Our Shop ?
+                            p.mb-4 We alaways try to offer the best fashionable products to our customers, dont forget to rate our shop .
+                            a.singup_btn.btn(href='/login') Login
+                    .signup_form.col-md.mt-4.mt-md-6
+                        h3 Welcome in our shop! #[br] Signup now
+                        form(action="/signup", method="post")
+                            .input_field
+                                input#username.form-control(type="text", name='username' required)
+                                label(for="#username") User Name
+                            .input_field.my-5
+                                if errorMsg && errorMsg.includes('Email')
+                                    input#email.form-control.is-invalid.my-4(type="email" name='email' required aria-describedby="validateEmail")
+                                    label(for="#email") Email
+                                    p#validateEmail.invalid-feedback #{errorMsg}
+                                else
+                                    input#email.form-control.my-4(type="email", name='email' required)
+                                    label(for="#email") Email
+                            .input_field
+                                if passErr
+                                    input#password.form-control.is-invalid.mt-4(type="password" name='password' required aria-describedby="validatePassword")
+                                    label(for="#password") Password
+                                    p#validatePassword.invalid-feedback #{passErr.msg}
+                                else
+                                    input#password.form-control(type="password", name='password', required)
+                                    label(for="#password") Password
+                            .input_field.my-5
+                                if (errorMsg && errorMsg.includes('password'))
+                                    input#confirmPassword.form-control.is-invalid.mt-4(type="password" name='confirmPassword' required aria-describedby="validatePassword")
+                                    label(for="#confirmPassword") Confirm Password
+                                    p#validatePassword.invalid-feedback #{errorMsg}
+                                else
+                                    input#confirmPassword.form-control.my-4(type="password", name='confirmPassword', required)
+                                    label(for="#confirmPassword") Confirm Password
+                            input.btn.form-control.signup_btn(type="submit", value='Create Account' required)
+        include components/footer
+        include parts/scripts
+        script(src='/js/auth.js')

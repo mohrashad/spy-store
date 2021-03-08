@@ -1,0 +1,38 @@
+doctype
+html(lang="en")
+    head
+        include parts/metas
+        include parts/styles
+        title Orders
+    body
+        include components/navbar
+        section.cart_items.py-5(style="background: #fafafa")
+            .container
+                if !orders.length
+                    p.alert.alert-danger there is no items
+                else
+                    .table-responsive
+                        table.table.table-striped
+                            thead.table-dark
+                                - const thArr = ['ProductName', 'Amount', 'Cost', 'adress', 'status', 'time', ''];
+                                each thStr in thArr
+                                    th= thStr
+                            tbody
+                                each order, i in orders
+                                    tr
+                                        td= order.name
+                                        td= order.amount
+                                        td= `${order.amount * order.price}$`
+                                        td= order.adress
+                                        td= order.status
+                                        td
+                                            p(style="width: 120px")= OrdersTimestamp[i]
+                                        td
+                                            form(action="/orders" method="post")
+                                                input(type="hidden" name="id" value=order._id)
+                                                input.btn.btn-danger(type="submit", value="Cancel")
+                    form.text-right.mt-4.mt-md-0(action="/orders" method="post")
+                        input.btn.btn-danger(type="submit", value="Cancel All")
+
+        include components/footer
+        include parts/scripts

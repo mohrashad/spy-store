@@ -1,0 +1,50 @@
+doctype
+html(lang="en")
+    head
+        include parts/metas
+        include parts/styles
+        link(rel="stylesheet", href="/css/addProduct.css")
+        title Add Product
+    body
+        include components/navbar
+        section.add-product.py-5(style="background: #fafafa")
+            .container.text-center
+                h3.mb-4 Add Product
+                form(action="/admin/add", method="post" enctype="multipart/form-data")
+                    input.form-control(type="text", name="name" placeholder="Product Name" required)
+                    -const nameError = errors.find(err => err.param === 'name')
+                    if nameError
+                        p.alert.alert-danger #{nameError.msg}
+                    input.form-control.my-4(type="number", name="price" placeholder="Price" required)
+                    -const priceError = errors.find(err => err.param === 'price')
+                    if priceError
+                        p.alert.alert-danger #{priceError.msg}
+                    textarea.form-control(type="password" name="description" placeholder="Description" required)
+                    -const descripError = errors.find(err => err.param === 'description')
+                    if descripError
+                        p.alert.alert-danger #{descripError.msg}
+                    select.form-control.my-4(type="password" name="category" required)
+                        option(value="" selected) Choose a category
+                        option(value="clothes") Clothes
+                        option(value="phones") Phones
+                        option(value="flowers") Flowers
+                        option(value="shoes") Shoes
+                        option(value="watches") Watches
+                        option(value="computers") Computers
+                    -const categoryError = errors.find(err => err.param === 'category')
+                    if categoryError
+                        p.alert.alert-danger #{categoryError.msg}
+                    input.form-control.mb-4(type="file" name="image" placeholder="Image" style="border:0; cursor: pointer; background: transparent")
+                    - const imageError = errors.find(err => err.param === 'image')
+                    if imageError
+                        p.alert.alert-danger #{imageError.msg}
+                    input.btn.btn-primary(type="submit" value="Add Product")
+                - const addProdcutErr = addProductMsg.find(err => err.includes('exists'))
+                - const addProductSucss = addProductMsg.find(err => err.includes('added'))
+                if addProdcutErr
+                    p.alert.alert-danger.addProductMsg #{addProdcutErr}
+                else if addProductSucss
+                    p.alert.alert-success.addProductMsg #{addProductSucss}
+        include components/footer
+        include parts/scripts
+        script(src="/js/addProduct.js")

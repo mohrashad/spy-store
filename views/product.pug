@@ -1,0 +1,35 @@
+doctype
+html(lang="en")
+    head
+        include parts/metas
+        include parts/styles
+        link(rel="stylesheet", href="/css/product.css")
+        title Product Details
+    body
+        include components/navbar
+        if productDetails
+            section.product-details.py-5
+                .container
+                        if amountErr
+                            p.alert.alert-danger #{amountErr.msg}
+                        if !productDetails
+                            .alert.alert-danger there is no product matches this id
+                        else
+                            .row
+                                .col-12.col-md-6.product-image
+                                    img(src=`/${productDetails.image}`, alt=`${productDetails.name}`)
+                                .col-12.col-md-6.product-details-content.d-flex.flex-column
+                                    .product.mt-4.mt-md-0
+                                        h3 #{productDetails.name}
+                                        h4.h5.price #{productDetails.price}$
+                                        p.lead.description #{productDetails.description}
+                                        p.category.mt-4 Category: #[span #{productDetails.category}]
+                                        form(action="/cart" method="post")
+                                            input.form-control(type="number", name="amount" placeholer="amount" requierd)
+                                            input(type="hidden", name="name", value=`${productDetails.name}`)
+                                            input(type="hidden", name="price", value=`${productDetails.price}`)
+                                            input(type="hidden", name="productId", value=`${productDetails._id}`)
+                                            input(type="hidden", name="redirectTo", value=`/product/${productDetails._id}`)
+                                            input.ml-4.text-uppercase.btn.btn-primary(type="submit", value="Add To Cart")
+        include components/footer
+        include parts/scripts

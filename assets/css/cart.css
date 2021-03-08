@@ -1,0 +1,7 @@
+#cart-btns .btn:not(:last-child) {
+    margin-right: 0.8rem;
+}
+
+.cart-btns {
+    width: 222px;
+}

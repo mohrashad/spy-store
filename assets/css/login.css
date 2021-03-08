@@ -1,0 +1,128 @@
+*,
+*:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+body {
+    font-family: josefin sans,sans-serif;;
+}
+
+header {
+    padding: 30px 0;
+    background-image: url('/images/login_banner.jpg');
+    background-size: cover;
+    height: 300px;
+    position: relative;
+}
+
+header h2 {
+    color: #fafafa;
+    font-weight: 900;
+    font-size: 55px !important;
+}
+
+header .overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.logIn .signup_box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 15px;
+    background-color: #bd4f6c;
+    background-image: linear-gradient(326deg, #bd4f6c 0%, #d7816a 74%);
+    color: #fff;
+    text-align: center;
+}
+
+.logIn .signup_box .singup_btn {
+    color: #fff;
+    font-weight: 600;
+    background-color: transparent;
+    border: 1px solid #fff;
+    width: 50%;
+    padding: 10px;
+    transition: background ease-in-out 0.3s;
+} 
+
+.logIn .signup_box .singup_btn:hover {
+    color: #ff2020;
+    background-color: #fff;
+}
+
+.logIn .signin_form h3 {
+    color: #0b1c39;
+    font-size: 27px;
+    line-height: 36px;
+    font-weight: 700;
+    margin-bottom: 35px;
+}
+
+.signin_form .input_field {
+    position: relative;
+}
+
+.logIn .signin_form label {
+    position: absolute;
+    color: #495057;
+    transition: all 0.3s ease-in-out;
+    font-weight: 400;
+    z-index: -1;
+}
+
+.logIn .signin_form label {
+    top: 7px;
+    left: 12px;
+}
+
+.logIn .signin_form input {
+    background: transparent;
+    border-radius: 0;
+    border: none;
+    border-bottom: 1px solid #d7816a;
+}
+
+.logIn .signin_form input:focus + label {
+    top: -16px;
+    left: 0px;
+    font-size: 13px;
+    color: #0b1c39;
+}
+
+.logIn .signin_form .has-data label {
+    top: -16px;
+    left: 0px;
+    font-size: 13px;
+    color: #0b1c39;
+}
+
+
+.logIn .signin_form .login_btn {
+    background: transparent;
+    display: block;
+    color: #d7816a;
+    border: 1px solid #d7816a;
+    height: 55px;
+    padding: 10px 30px;
+    font-weight: 500;
+    font-size: 18px;
+    border-radius: 5px;
+    transition: background 0.3s ease-in-out;
+}
+
+.logIn .signin_form .login_btn:hover {
+    background: linear-gradient(326deg, #bd4f6c 0%, #d7816a 74%);
+    color: #fff;
+}

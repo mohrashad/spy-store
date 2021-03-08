@@ -1,0 +1,9 @@
+input[name="status"] {
+    width: 82px;
+    text-align: center;
+    outline: none;
+}
+
+p.timeStamp {
+    width: 150px;
+}

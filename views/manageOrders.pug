@@ -1,0 +1,55 @@
+doctype
+html(lang="en")
+    head
+        include parts/metas
+        include parts/styles
+        link(rel="stylesheet", href="/css/manageOrders.css")
+        title Manage Orders
+    body
+        include components/navbar
+
+        section.manageOrders.py-5(style="background: #fafafa")
+            .container.text-center
+                .status-filter.mb-4
+                    a(href="/admin/orders?status=all").btn.btn-primary All
+                    a(href="/admin/orders?status=pending").btn.btn-primary.ml-2.ml-sm-4 Pending
+                    a(href="/admin/orders?status=sent").btn.btn-primary.ml-2.ml-sm-4 Sent
+                    a(href="/admin/orders?status=compeleted").btn.btn-primary.ml-2.ml-sm-4 Compeleted
+                .email-search.mb-5
+                    form(action="/admin/orders", method="post")
+                        input.form-control.mb-4(type="email", name="email" placeholder="Email")
+                        input.btn.btn-success(type="submit", value="Search")
+                .products-preview.table-responsive
+                    table.table.table-striped
+                        thead.table-dark
+                            - const thArr = ['no', 'email', 'ProductName', 'Amount', 'Cost', 'adress', 'status', 'time', ''];
+                            each thStr in thArr
+                                th= thStr
+                        tbody
+                            each order, i in orders
+                                - const user = users.find(user => user._id == order.userId)
+                                tr
+                                    td= i+1
+                                    td= user.email
+                                    td= order.name
+                                    td= order.amount
+                                    td= `${order.amount * order.price}$`
+                                    td= order.adress
+                                    form(action="/admin/order/status" method="post")
+                                        input(type="hidden", name="orderId" value=order._id)
+                                        if order.status === 'compeleted'
+                                            td= order.status
+                                        else
+                                            td
+                                                input(type="text", name="status", value=order.status)
+                                        td
+                                            -console.log(OrdersTimestamp)
+                                            p.timeStamp= OrdersTimestamp[i]
+
+                                        if order.status === 'compeleted'
+                                            td
+                                        else
+                                            td
+                                                input.btn.btn-success(type="submit", value="Save")
+        include components/footer
+        include parts/scripts

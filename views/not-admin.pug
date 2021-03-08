@@ -1,0 +1,15 @@
+doctype
+html(lang="en")
+    head
+        include parts/metas
+        include parts/styles
+        link(rel="stylesheet" href="/css/login.css")
+        title Not Admin
+    body
+        include components/navbar
+        section.py-5
+            .container
+                p.alert.alert-danger Access denied !!
+        include components/footer
+        include parts/scripts
+        script(src='/js/auth.js')

@@ -1,0 +1,43 @@
+footer.text-light
+    .container
+        .row
+            .col-md-6.col-lg-4.footer-left
+                h4.text-uppercase.heading shop #[span template]
+                p.my-4 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Blanditiis repellendus veniam qui reiciendis. Sit quo aliquid vel ab fugit molestias esse dolore in?
+                .social-icons
+                    a.mr-3(href="#") #[i.fab.fa-facebook-f]
+                    a.mr-3(href="#") #[i.fab.fa-twitter]
+                    a.mr-3(href="#") #[i.fab.fa-google-plus-g]
+                    a(href="#") #[i.fab.fa-instagram]
+            
+            .col-md-6.col-lg-8.footer-right.pl-lg-5.pt-4.pt-lg-0
+                .h4.text-uppercase all branded products are flat 20% discount
+                .row
+                    .col.mt-5.useful-links
+                        h5.text-uppercase useful links
+                        ul.list-unstyled
+                            li #[a(href="/") Home]
+                            li #[a(href="/signup") Signup]
+                            li #[a(href="/login") Login]
+                            if isUser
+                                li #[a(href="/cart") Cart]
+                                li #[a(href="/orders") Orders]
+                            if isAdmin
+                                li #[a(href="/admin/add") Add Product]
+                                li #[a(href="/admin/orders") Manage Products]
+                    .col.mt-5.store
+                        h5.text-uppercase our store
+                        p.mb-5 45446 gamalia, cairo, egypt
+                        h5.text-uppercase we accept:
+                        ul.list-unstyled.d-flex
+                            li
+                                a(href="#") #[i.fab.fa-cc-visa]
+                            li
+                                a(href="#") #[i.fab.fa-cc-mastercard]
+                            li
+                                a(href="#") #[i.fab.fa-cc-paypal]
+                            li
+                                a(href="#") #[i.fab.fa-cc-stripe]
+    .copyright.mt-5.pt-5
+        .container.text-center
+            p &copy; 2020 Shop Template. All rights reserved. Designed by Mohamed Rashad

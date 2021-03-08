@@ -1,0 +1,21 @@
+doctype
+html(lang="en")
+    head
+        include parts/metas
+        include parts/styles
+        link(rel="stylesheet", href="/css/verify-order.css")
+        title Verify Order
+    body
+        include components/navbar
+
+        section.verify_cart.py-5
+            .container
+                form.verify-order(action="/orders", method="post")
+                    input.adress(type="text", name="adress" placeholder="adress")
+                    input(type="hidden", name="name", value=orderData.name)
+                    input(type="hidden", name="price", value=orderData.price)
+                    input(type="hidden", name="amount", value=orderData.amount)
+                    input.btn.btn-success.ml-4(type="submit", value="Order")
+
+        include components/footer
+        include parts/scripts

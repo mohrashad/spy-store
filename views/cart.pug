@@ -1,0 +1,44 @@
+doctype
+html(lang="en")
+    head
+        include parts/metas
+        include parts/styles
+        link(rel="stylesheet", href="/css/cart.css")
+        title Cart
+    body
+        include components/navbar
+        section.cart_items.py-5(style="background: #fafafa")
+            .container
+                if !items.length
+                    p.alert.alert-danger there is no items
+                else
+                    .table-responsive
+                        table.table.table-striped
+                            thead.table-dark
+                                - const thArr = ['no', 'ProductName', 'Price', 'Amount', 'total', ''];
+                                each thStr in thArr
+                                    if thStr.length
+                                        th= thStr
+                                    else
+                                        th(colspan="2")= thStr
+                            tbody
+                                each item, i in items
+                                    tr
+                                        td= i + 1
+                                        td= item.name
+                                        td= `${item.price}$`
+                                        form(method="post")
+                                            td #[input.form-control(type='text', name='amount', value=item.amount)]
+                                            td= `${item.price * item.amount}$`
+                                            td#cart-btns
+                                                .cart-btns
+                                                    input(type="hidden", name="cartId", value=item._id)
+                                                    input.btn.btn-success(type="submit", value="Save" formaction="/cart/save")
+                                                    a.btn.btn-success(href=`/orders/verify?cart=${item._id}`) Order
+                                                    input.btn.btn-danger(type="submit", value="Delete" formaction="/cart/delete")
+                form.text-right.mt-4.mt-md-0(method="post")
+                    input.btn.btn-danger(type="submit", value="Delete All" formaction="/cart/delete")
+                
+
+        include components/footer
+        include parts/scripts

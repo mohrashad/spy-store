@@ -1,0 +1,9 @@
+.addProductMsg {
+    position: absolute;
+    top: 57px;
+    right: 0;
+    width: 288px;
+    display: block;
+    transform: translateX(288px);
+    transition: transform 0.6s ease-in-out;
+}

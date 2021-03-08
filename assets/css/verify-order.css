@@ -1,0 +1,9 @@
+.verify-order .adress {
+    outline: none;
+    color: #777;
+    padding: 4px 15px;
+}
+
+.verify-order .adress::placeholder {
+    color: #777;
+}

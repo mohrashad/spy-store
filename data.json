@@ -1,0 +1,51 @@
+[
+    {
+        "name": "t-shirt",
+        "price": 50,
+        "category": "clothes",
+        "description": "summer t-shirt",
+        "image": "t-shirt1.jpg"
+    },
+    {
+        "name": "phone",
+        "price": 200,
+        "category": "phones",
+        "description": "andriod phone",
+        "image": "mobile2.jpg"
+    },
+    {
+        "name": "flower",
+        "price": 12,
+        "category": "flowers",
+        "description": "flower one product",
+        "image": "flower1.jpg"
+    },
+    {
+        "name": "jeans",
+        "price": 80,
+        "category": "clothes",
+        "description": "summer jeans",
+        "image": "jeans1.jpg"
+    },
+    {
+        "name": "watch",
+        "price": 35,
+        "category": "watches",
+        "description": "smart watch",
+        "image": "watch1.jpg"
+    },
+    {
+        "name": "shoes",
+        "price": 55,
+        "category": "shoes",
+        "description": "summer shoes",
+        "image": "shoes1.jpg"
+    },
+    {
+        "name": "iphone",
+        "price": 120,
+        "category": "phones",
+        "description": "ios phone",
+        "image": "iphone1.jpg"
+    }
+]

@@ -1,0 +1,43 @@
+doctype
+html(lang="en")
+    head
+        include parts/metas
+        include parts/styles
+        link(rel="stylesheet" href="/css/login.css")
+        title Login
+    body
+        include components/navbar
+        header.text-center
+            .overlay
+                h2.h1 Login
+        section.logIn.py-5
+            .container
+                .row.signin
+                    .signup_box.col-md
+                        .signup_wrapper.py-4.py-md-0
+                            h3.mb-4 New To Our Shop ?
+                            p.mb-4 We alaways try to offer the best fashionable products to our customers, dont forget to rate our shop .
+                            a.singup_btn.btn(href='/signup') Create Account
+                    .signin_form.col-md.mt-4.mt-md-0
+                        h3 Welcome Back! #[br] Sign in now
+                        form.mt-4(action="/login" method="post")
+                            .input_field
+                                if errorMsg && errorMsg.includes('email')
+                                    input#email.form-control.is-invalid(type="email" name='email' required aria-describedby="validateEmail")
+                                    label(for="#email") Email
+                                    p#validateEmail.invalid-feedback #{errorMsg}
+                                else
+                                    input#email.form-control.mb-5(type="email" name='email' required)
+                                    label(for="#email") Email
+                            .input_field
+                                if errorMsg && errorMsg.includes('password')
+                                    input#password.form-control.is-invalid(type="password" name='password' required aria-describedby="validatePassword")
+                                    label(for="#password") Password
+                                    p#validatePassword.invalid-feedback #{errorMsg}
+                                else
+                                    input#password.form-control.mb-5(type="password" name='password' required)
+                                    label(for="#password") Password
+                            input.btn.form-control.login_btn(type="submit" value='Login')
+        include components/footer
+        include parts/scripts
+        script(src='/js/auth.js')
